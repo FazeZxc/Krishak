@@ -38,7 +38,7 @@ export function SignUp() {
                     "transition": "all 150ms ease",
                     "cursor": "pointer",
                     "border": "1px solid white"
-                }} type="submit">Sign up</button>
+                }} type="submit">SIGN UP</button>
             </form>
         </div>
     </div>

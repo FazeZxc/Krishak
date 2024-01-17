@@ -7,12 +7,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { useAuthState } from './components/auth/authstate'
 import { Admin } from './components/admin/Admin'
 import { Tab, TabPanel, TabsList, Tabs } from '@mui/base';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 function App() {
     const { authUser, authentication, userSignOut } = useAuthState()
 
     if (authentication.initialized) {
-        return <>Loading</>
+        return <Box className='w-screen h-screen flex flex-row items-center justify-center'>
+        <CircularProgress />
+      </Box>
     }
 
     return (
@@ -20,7 +24,7 @@ function App() {
         <main>
 
             <Tabs defaultValue={1}>
-                <TabsList className='mb-4 rounded-xl bg-green-500 flex font-sans items-center justify-center content-between min-w-tabs-list shadow-lg'>
+            {!authUser?  <TabsList className='mb-4 rounded-xl bg-green-500 flex font-sans items-center justify-center content-between min-w-tabs-list shadow-lg'>
                     <Tab slotProps={{
                         root: ({ selected, disabled }) => ({
                             className: `font-sans ${selected
@@ -29,7 +33,7 @@ function App() {
                                 } ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
                                 } text-sm font-bold w-full p-2 m-1.5 border-0 rounded-lg flex justify-center focus:outline-0 focus:shadow-outline-green-light`,
                         }),
-                    }} value={1}>Log in</Tab>
+                    }} value={1}>LOGIN</Tab>
                     <Tab slotProps={{
                         root: ({ selected, disabled }) => ({
                             className: `font-sans ${selected
@@ -38,8 +42,9 @@ function App() {
                                 } ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
                                 } text-sm font-bold w-full p-2 m-1.5 border-0 rounded-lg flex justify-center focus:outline-0 focus:shadow-outline-green-light`,
                         }),
-                    }} value={2}>Sign Up</Tab>
-                </TabsList>
+                    }} value={2}>SIGN UP</Tab>
+                </TabsList> : <></>}
+               
 
                 <Router>
                     <PublicRoute path={"/"} element={(<div></div>)} />

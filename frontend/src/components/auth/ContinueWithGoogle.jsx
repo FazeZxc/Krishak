@@ -34,6 +34,6 @@ export function ContinueWithGoogle() {
             "cursor": "pointer",
             "border": "1px solid white"
         }}
-            onClick={signin}>Continue with google</button>
+            onClick={signin}>CONTINUE WITH GOOGLE</button>
     </div>
 }

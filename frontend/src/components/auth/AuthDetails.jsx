@@ -1,60 +1,8 @@
-// import React , { useEffect, useState } from "react";
-// import { auth } from "../../firebase";
-// import { onAuthStateChanged, signOut } from "firebase/auth";
-// import { ContinueWithGoogle } from "./ContinueWithGoogle";
 
-// export function AuthDetails(){
-//     const [authUser , setAuthUser] = useState(null)
-//     const [authentication, setAuthState] = useState({
-//         authenticated: false, 
-//         initialized: true 
-//       });
-
-//     useEffect(()=>{
-//         const listen = onAuthStateChanged(auth , (user)=>{
-//             if(user){
-//                 setAuthUser(user)
-//                 setAuthState({
-//                     authenticated: true ,
-//                     initialized: false
-//                 })
-//             } else{
-//                 setAuthUser(null)
-//                 setAuthState({
-//                     authenticated: false ,
-//                     initialized: false
-//                 })
-//             }
-//         })
-
-//         return ()=>{
-//             listen();
-//         }
-
-//     }, [])
-
-//     function userSignOut(){
-//         signOut(auth).then(()=>{
-//             console.log('Sign out succesful')
-//         }).catch(error => console.log(error))
-//     }
-
-
-//     return <div>
-//         {authUser ? <> <p>{`Signed In as ${authUser.email}`} </p> <button onClick={userSignOut}>Sign Out</button> </>: <><p>Signed Out</p> 
-//         <ContinueWithGoogle></ContinueWithGoogle></>}
-//     </div>
-// }
-
-// module.exports = {}
-
-
-
-
-// AuthDetails.js
 import React from 'react';
 import { useAuthState } from './authstate.js';
 import { ContinueWithGoogle } from './ContinueWithGoogle';
+import MediaCard from '../MediaCard.jsx';
 
 export function AuthDetails() {
   const { authUser, authentication, userSignOut } = useAuthState();
@@ -63,8 +11,23 @@ export function AuthDetails() {
     <div>
       {authUser ? (
         <>
-          <p>{`Signed In as ${authUser.email}`}</p>
-          <button onClick={userSignOut}>Sign Out</button>
+          {/* <p>{`Signed In as ${authUser.email}`}</p> */}
+          {/* <button onClick={userSignOut}>Sign Out</button> */}
+          <button style={{
+            "fontFamily": "'IBM Plex Sans', sans-serif",
+            "fontWeight": "600",
+            "backgroundColor": "#1877F2",
+            "fontSize": "0.875rem",
+            "lineHeight": "1.5",
+            "padding": "8px 16px",
+            "borderRadius": "8px",
+            "color": "white",
+            "transition": "all 150ms ease",
+            "cursor": "pointer",
+            "border": "1px solid white"
+        }}
+        onClick={userSignOut}>LOG OUT</button>
+        <MediaCard></MediaCard>
         </>
       ) : (
         <>
