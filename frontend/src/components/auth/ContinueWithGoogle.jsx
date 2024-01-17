@@ -7,7 +7,7 @@ export function ContinueWithGoogle() {
 
     function signin(e) {
         e.preventDefault()
-        signInWithRedirect(auth ,provider)
+        signInWithRedirect(auth, provider)
         getRedirectResult(auth).then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result)
             const token = credential.accessToken
@@ -19,7 +19,21 @@ export function ContinueWithGoogle() {
 
     }
 
-    return <div>
-        <button onClick={signin}>Continue with google</button>
+    return <div className="flex flex-col justify-center items-center gap-2">
+        <h1 className="font-semibold">Or</h1>
+        <button style={{
+            "fontFamily": "'IBM Plex Sans', sans-serif",
+            "fontWeight": "600",
+            "backgroundColor": "#1877F2",
+            "fontSize": "0.875rem",
+            "lineHeight": "1.5",
+            "padding": "8px 16px",
+            "borderRadius": "8px",
+            "color": "white",
+            "transition": "all 150ms ease",
+            "cursor": "pointer",
+            "border": "1px solid white"
+        }}
+            onClick={signin}>Continue with google</button>
     </div>
 }
