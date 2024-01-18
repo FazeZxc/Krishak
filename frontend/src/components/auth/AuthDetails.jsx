@@ -3,12 +3,14 @@ import React from 'react';
 import { useAuthState } from './authstate.js';
 import { ContinueWithGoogle } from './ContinueWithGoogle';
 import MediaCard from '../MediaCard.jsx';
+import { Chat } from '../../chat/chat.jsx';
+import { ChatRoom } from '../../chat/Chatroom.jsx';
 
 export function AuthDetails() {
   const { authUser, authentication, userSignOut } = useAuthState();
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center'>
       {authUser ? (
         <>
           {/* <p>{`Signed In as ${authUser.email}`}</p> */}
@@ -28,6 +30,7 @@ export function AuthDetails() {
         }}
         onClick={userSignOut}>LOG OUT</button>
         <MediaCard></MediaCard>
+        <ChatRoom></ChatRoom>
         </>
       ) : (
         <>

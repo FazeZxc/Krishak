@@ -10,6 +10,7 @@ import { Tab, TabPanel, TabsList, Tabs } from '@mui/base';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
+
 function App() {
     const { authUser, authentication, userSignOut } = useAuthState()
 
