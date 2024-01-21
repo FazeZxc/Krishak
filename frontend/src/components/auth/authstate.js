@@ -9,6 +9,7 @@ export function useAuthState() {
     initialized: true,
   });
 
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -17,6 +18,7 @@ export function useAuthState() {
           authenticated: true,
           initialized: false,
         });
+        
       } else {
         setAuthUser(null);
         setAuthState({
@@ -33,6 +35,7 @@ export function useAuthState() {
     signOut(auth)
       .then(() => {
         console.log('Sign out successful');
+        window.location.href='/register'
       })
       .catch((error) => console.log(error));
   }

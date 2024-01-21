@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase"
+import { ContinueWithGoogle } from "./ContinueWithGoogle"
 
 export function SignUp() {
     const [email, setEmail] = useState('')
@@ -17,9 +18,9 @@ export function SignUp() {
     }
 
     return <div>
-        <div className="sign-in-container">
+        <div className="sign-in-container flex flex-col justify-center items-center h-screen">
             <form onSubmit={signUp} className="flex flex-col justify-center items-center gap-5">
-                <h1 className="text-[50px] p-5 text-black font-bold font-MoiraiOne">Create an account</h1>
+                <h1 className="text-[50px] p-5 text-white font-bold font-MoiraiOne">Create an account</h1>
                 <input className="w-80 text-sm font-sans font-normal leading-5 px-3 py-2 rounded-lg shadow-md shadow-slate-100  focus:shadow-outline-green  focus:shadow-lg border border-solid border-slate-300 hover:border-green-500  focus:border-green-500   bg-white text-slate-900  focus-visible:outline-0" type="email" placeholder="Enter your email" value={email} onChange={(e) => {
                     setEmail(e.target.value)
                 }}></input>
@@ -40,6 +41,7 @@ export function SignUp() {
                     "border": "1px solid white"
                 }} type="submit">SIGN UP</button>
             </form>
+            <ContinueWithGoogle />
         </div>
     </div>
 }

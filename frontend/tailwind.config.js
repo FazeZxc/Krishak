@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily: {
         MoiraiOne: ['"Moirai One"', "sans-serif"],
-        
+        Jungle: ['JungleCamp', "sans-serif"],
+        RobotoCondensed : [ 'Roboto Condensed' , 'sans-serif']
       },
     },
   },

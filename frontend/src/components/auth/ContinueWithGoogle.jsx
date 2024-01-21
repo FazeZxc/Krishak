@@ -7,20 +7,20 @@ export function ContinueWithGoogle() {
 
     function signin(e) {
         e.preventDefault()
-        signInWithRedirect(auth, provider)
+        signInWithRedirect(auth, provider).then(() => {
+            window.location.href = "/dashboard"
+        })
         getRedirectResult(auth).then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result)
             const token = credential.accessToken
-
             const user = result.user
         }).catch((error) => {
             console.log(error);
         })
-
     }
 
     return <div className="flex flex-col justify-center items-center gap-2">
-        <h1 className="font-semibold">Or</h1>
+        <h1 className="font-semibold text-white">Or</h1>
         <button style={{
             "fontFamily": "'IBM Plex Sans', sans-serif",
             "fontWeight": "600",

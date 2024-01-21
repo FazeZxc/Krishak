@@ -33,8 +33,8 @@ export function ChatRoom() {
         dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
 
-    return (<>
-        <div className="w-[800px] h-[1000px] border-4 overflow-scroll bg-white rounded-xl hiddenScroll">
+    return (<div className="border-4 flex flex-col justify-center items-center bg-[#272727]" >
+        <div className="w-[90%] h-[1000px] border-4 overflow-scroll bg-gray-500 rounded-xl hiddenScroll">
             <main>
 
                 {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
@@ -43,15 +43,18 @@ export function ChatRoom() {
 
             </main>
 
-            
+
         </div>
         <form onSubmit={sendMessage}>
 
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className='w-[470px] text-sm font-sans font-normal leading-5 px-3 py-2 rounded-lg shadow-md shadow-slate-100 dark:shadow-slate-900 focus:shadow-outline-purple dark:focus:shadow-outline-purple focus:shadow-lg border border-solid border-slate-300 hover:border-purple-500 dark:hover:border-purple-500 focus:border-purple-500 dark:focus:border-purple-500 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-300 focus-visible:outline-0'
-                    placeholder="Type something…" />
+            <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className='w-[450px] text-sm font-sans font-normal leading-5 px-3 py-2 rounded-lg shadow-md shadow-slate-100 dark:shadow-slate-900 focus:shadow-outline-green dark:focus:shadow-outline-green focus:shadow-lg border border-solid border-slate-300 hover:border-green-500 dark:hover:border-green-500 focus:border-green-500 dark:focus:border-green-500 dark:border-slate-600 bg-white dark:bg-white text-slate-900 dark:text-slate-900 focus-visible:outline-0'
+                placeholder="Type something…" />
 
-                <button type="submit" disabled={!formValue}><SendIcon></SendIcon></button>
+            <button type="submit" disabled={!formValue}><SendIcon sx={{
+                color: "#22C55E",
+                fontSize: '30px'
+            }}></SendIcon></button>
 
-            </form>
-    </>)
+        </form>
+    </div>)
 }

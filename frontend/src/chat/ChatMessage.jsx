@@ -8,10 +8,10 @@ export function ChatMessage(props) {
 
     return (<>
         <div >
-            <div className={` p-2 w-fit message ${messageClass} flex flex-row`} >
+            <div className={` message ${messageClass} flex flex-row`} >
                 <Avatar src={photoURL}></Avatar>
-                <article className="max-w-[600px] m-1 bg-[#22C55E]  p-1 border rounded-tr-lg rounded-br-lg rounded-bl-lg text-wrap">
-                    <p className="font-semibold text-left p-2 text-white text-xl ">{text}</p>
+                <article className="w-auto m-1 bg-[#22C55E]  p-1 border rounded-tr-lg rounded-br-lg rounded-bl-lg text-wrap">
+                    <p className="w-auto font-semibold text-left p-2 text-white text-xl text-balance">{text}</p>
                 </article>
             </div>
         </div>

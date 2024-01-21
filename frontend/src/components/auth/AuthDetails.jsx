@@ -5,6 +5,8 @@ import { ContinueWithGoogle } from './ContinueWithGoogle';
 import MediaCard from '../MediaCard.jsx';
 import { Chat } from '../../chat/chat.jsx';
 import { ChatRoom } from '../../chat/Chatroom.jsx';
+import BasicCard from '../nav/Cardbar.jsx';
+import ChatCard from '../nav/ChatCard.jsx';
 
 export function AuthDetails() {
   const { authUser, authentication, userSignOut } = useAuthState();
@@ -30,12 +32,9 @@ export function AuthDetails() {
         }}
         onClick={userSignOut}>LOG OUT</button>
         <MediaCard></MediaCard>
-        <ChatRoom></ChatRoom>
         </>
       ) : (
         <>
-          {/* <p>Signed Out</p> */}
-          <ContinueWithGoogle />
         </>
       )}
     </div>

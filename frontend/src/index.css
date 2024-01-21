@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'JungleCamp';
+    src: local('JungleCamp'), url(./assets/fonts/jungle-camp/Jungle Camp.otf) format('opentype');
+  }
+
+html,
+body{
+    background-color: #272727;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 0;
+}
+
+
+.MuiSelect-standard{
+  outline: none;
+  color: white;
+  border: none
+}
+
+.MuiSelect-standard:hover{
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.MuiSelect-standard::selection{
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
